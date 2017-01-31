@@ -35,7 +35,7 @@ class AbstractScheduledTask(models.Model):
 
 class ReportRequestManager(models.Manager):
     """
-    The manager for report requests.
+    The anager for report requests.
     """
     def completed(self):
         """
