@@ -104,7 +104,7 @@ class DateTimeFilterControl(FilterControl):
         """
         ln=self.label or self.field_name
         start=forms.CharField(label=_("%s From")%ln,required=False,widget=forms.DateTimeInput(attrs={'class': 'vDateField','placeholder':'YYYY-MM-DD'}))
-        end=forms.CharField(label=_("%s To")%ln,required=False,widget=forms.DateTimeInput(attrs={'class': 'vDateField','placeholder':'YYYY-MM-DD'}))
+        end=forms.CharField(label=_("%s To")%ln,required=False,widget=forms.DateTimeInput(attrs={'class': 'vDateField','placeholder':'YYYY-MM-DD'}),help_text=_("End date should be the Next Day, e.g. for all of February do YYYY-02-01 and YYYY-03-01"))
         return SortedDict([("%s__gte"%self.field_name, start),
                            ("%s__lt"%self.field_name, end),])
 

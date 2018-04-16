@@ -109,9 +109,9 @@ class RequestReportView(TemplateView, RequestReportMixin):
             form = report.get_filter_form(data=None)
         return form
     
-    def get_requested_reports(self):
+    def get_requested_reports(self,offset=0,limit=30):
         qs = ReportRequest.objects.filter(namespace=self.kwargs['namespace'],
-                                          slug=self.kwargs['slug'],)
+                                          slug=self.kwargs['slug'],).order_by("-request_made")[offset:limit]
         return qs
     
     def get_context_data(self, **kwargs):
