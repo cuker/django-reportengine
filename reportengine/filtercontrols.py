@@ -103,8 +103,8 @@ class DateTimeFilterControl(FilterControl):
         :return:  A dictionary containing hte start and end dates for the filtercontrol
         """
         ln=self.label or self.field_name
-        start=forms.CharField(label=_("%s From")%ln,required=False,widget=forms.DateTimeInput(attrs={'class': 'vDateField'}))
-        end=forms.CharField(label=_("%s To")%ln,required=False,widget=forms.DateTimeInput(attrs={'class': 'vDateField'}))
+        start=forms.CharField(label=_("%s From")%ln,required=False,widget=forms.DateTimeInput(attrs={'class': 'vDateField','placeholder':'YYYY-MM-DD'}))
+        end=forms.CharField(label=_("%s To")%ln,required=False,widget=forms.DateTimeInput(attrs={'class': 'vDateField','placeholder':'YYYY-MM-DD'}))
         return SortedDict([("%s__gte"%self.field_name, start),
                            ("%s__lt"%self.field_name, end),])
 
